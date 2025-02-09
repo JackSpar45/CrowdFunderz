@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Payment-Interface-Page</title>
+    <style>
+        body{
+            text-align: center;
+        }
+     
+       
+        .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: auto;
+    width: 70%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    margin-top: 65px;
+}
+
+.container-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    height: auto;
+    width: 70%;
+    position: absolute;
+    top: calc(50% + 385px); /* Adjust this value to add space between .container and .container-2 */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    flex-wrap: wrap;
+    border-radius: 10px;
+}
+
+.c3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    height: auto;
+    width: 70%;
+    position: absolute;
+    top: calc(50% + 460px); /* Adjust this value to add space between .container-2 and .c3 */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    flex-wrap: wrap;
+    border-radius: 10px;
+}
+
+        #upiId{
+            width:310px;
+            height:2.55em;
+           
+            border-radius: 13px;
+        }
+        .btn{
+            width:6em;
+            height:2.7em;
+            border:none;
+            border-radius: 13px;
+            margin-left:15px;
+            color:rgb(12, 13, 13);
+            background-color: orange;
+            font-size: 15px;
+            font-weight: bolder;
+            padding:-10px;
+            cursor:pointer;
+        }
+        #upiId {
+           font-weight: bold;
+           font-size: 15px;
+           font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+           text-align: center;
+        }
+        .btn:hover,.btn2:hover{
+            transform : scale(1.05);
+        }
+        .btn2{
+            width:6em;
+            height:2.7em;
+            border:none;
+            border-radius: 13px;
+            margin-left:8px;
+            color:rgb(12, 13, 13);
+            background-color: rgb(6, 239, 17);
+            font-size: 15px;
+            font-weight: bolder;
+            padding:-10px;
+            cursor:pointer;
+        }
+        #line1{
+            position: absolute;
+            margin-top:-550px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            
+        }
+        #line2{
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            font-size:2em;
+        }
+        .line3{
+            font-size: 1.5em;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        img{
+            margin-top:30px;
+        }
+        h1{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        
+        .icon1, .icon2{
+            height:40px;
+            width:80px;
+            margin-bottom:-15px;
+        }
+        .icon3{
+            height:25px;
+            width:65px;
+            margin-bottom:-5px;
+            margin:0 3px;
+        }
+    </style>
+    
+</head>
+<body>
+    
+
+    <h1>Payment Interface Page</h1>
+    <p id="line2" >
+        Recipient Name : CROWDFUNDERZ
+    </p>
+    <div class="container">
+        <p id="line1">Pay using <img src="./img/phonePe.jpg" class="icon1" alt="Phone Pay"> <i><b>PhonePe</b></i>,  <img src="./img/Google_Pay.jpg" class="icon2" alt="Google Pay"> <i><b>GPay</b></i> and
+            <img src="./img/upi_icon.jpg" class="icon3" alt="upi_icon">   <i><b>UPI ID</b></i></p> <br>
+        <img src="./img/QR-Code.jpg" alt="QR-Code" height="500px" width="400px">
+        <img src="./img/QR-Code2.jpg" alt="QR-Code" height="500px" width="400px">
+    </div>
+    <div class="container-2">
+        <form>
+            <label for="upiId"></label>
+            <input type="text" id="upiId" name="upiId" value="crowdfunderz@upibank" readonly/>
+            <button class="btn" id="copyButton">Copy</button>
+        </form>
+    </div>
+    
+    <br>
+    <div class="c3">
+        <p class="line3">Fill the given form after payment</p>
+        <br>
+        <a href = "https://forms.gle/n3eh4NoRkRRkxrGR6"> <button class="btn2">Form Link</button> </a>
+    </div>
+   <!-- 
+    <script>
+        document.getElementById("copyButton").addEventListener("click", function() {
+            event.preventDefault();
+            var upiIdInput = document.getElementById("upiId");
+            document.execCommand("copy");
+            alert("UPI-ID copied to clipboard: " + upiIdInput.value);          
+        });
+
+    </script>
+     -->
+     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("copyButton").addEventListener("click", function(event) {
+                event.preventDefault();
+                var upiIdInput = document.getElementById("upiId");
+                upiIdInput.select();
+                document.execCommand("copy");
+                alert("UPI-ID copied to clipboard: " + upiIdInput.value);
+            });
+        });
+    </script>
+      
+    
+</body>
+</html>
+

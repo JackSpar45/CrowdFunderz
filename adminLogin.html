@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Page</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .login-container {
+    width: 35%;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin-right:20px;
+  }
+  .login-container form {
+    margin-bottom: 20px; /* Added margin between login form and forgot password button */
+  }
+  input[type="text"],
+  input[type="password"],
+  button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+
+  input[type="email"]{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+
+  input[type="text"],
+  input[type="password"]{
+    border:1.5px solid #ccc;
+  }
+  button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #45a049;
+  }
+</style>
+</head>
+<body>
+<div class="login-container">
+  <h1 style="color:black;">Admin Login</h1>
+  <form id="login-form">
+    <input type="text" id="username" name="username" placeholder="Username" required>
+    <br>
+    <input type="password" id="password" name="password" placeholder="Password" required>
+    <br>
+    <button type="button" onclick="validateLogin()">Login</button>
+  </form>
+  <button type="button" onclick="forgotPassword()">Forgot Password</button> <!-- Moved Forgot Password button outside the form -->
+</div>
+
+<!-- Modal for Forgot Password -->
+<div id="forgotPasswordModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2>Forgot Password</h2>
+    <input type="password" id="newPassword" name="newPassword" placeholder="Enter New Password" required>
+    <input type="email" id="gmail" name="gmail" placeholder="Enter username/Gmail" required>
+    <button type="button" onclick="updatePassword()">Update Password</button>
+  </div>
+</div>
+
+<script>
+  var adminUsername = "admin"; // Default admin username
+  var adminPassword = "admin123"; // Default admin password
+  closeModal(); //
+  function validateLogin() {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+
+    if (username === adminUsername && password === adminPassword) {
+      alert("Login successful!");
+      window.location.href = "https://docs.google.com/forms/d/1LI82kn1yYJeYhgPebo8pkqZOIpPV6HyVRZPtSk0aWrw/edit?pli=1&pli=1&pli=1&pli=1&edit_requested=true#responses"; 
+    } else {
+      alert("Invalid username or password. Please try again.");
+    }
+  }
+
+  function forgotPassword() {
+    var modal = document.getElementById("forgotPasswordModal");
+    modal.style.display = "block";
+  }
+
+  function closeModal() {
+    var modal = document.getElementById("forgotPasswordModal");
+    modal.style.display = "none";
+  }
+
+  function updatePassword() {
+    var newPassword = document.getElementById("newPassword").value;
+    var gmail = document.getElementById("gmail").value;
+
+    // Update the admin username and password
+    adminUsername = gmail; // Update admin username with the provided Gmail
+    adminPassword = newPassword; // Update admin password with the new password
+
+    alert("Password updated successfully!");
+    closeModal(); // Close the modal after updating the password
+  }
+</script>
+
+</body>
+</html>
